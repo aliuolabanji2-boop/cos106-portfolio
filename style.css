@@ -1,3 +1,224 @@
-style {
-    background-color: #f0f0f0;
+/* --- 1. Global Variables & Reset --- */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333333;
+    --bg-color: #f4f7f6;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer stays at the bottom */
+}
+
+/* --- 2. Navigation (Using Flexbox) --- */
+header {
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* This turns the list into a horizontal row */
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- 3. Main Layout & Sections --- */
+main {
+    flex: 1; /* Pushes the footer down */
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+section {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Profile Image Styling */
+.hero-section img {
+    border-radius: 50%;
+    display: block;
+    margin: 1.5rem auto;
+    border: 4px solid var(--secondary-color);
+}
+
+/* --- 4. Projects Page (Using CSS Grid) --- */
+.projects-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
+    gap: 2rem;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.projects-section h1, 
+.projects-section > p {
+    grid-column: 1 / -1; /* This tells the heading and text to span all columns! */
+    text-align: center;
+}
+
+.project-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Creates a neat lifting effect on hover */
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* --- 5. Forms & Inputs (Contact & Planner) --- */
+.form-group, .task-container {
+    margin-bottom: 1.5rem;
+}
+
+.planner-section p {
+    margin-bottom: 1.5rem; 
+}
+
+.task-container {
+    display: flex; 
+    gap: 1rem; 
+    margin-bottom: 2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+}
+
+.error-messages {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Task List Styling for Planner */
+#task-list {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+#task-list li {
+    background: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed-task {
+    text-decoration: line-through;
+    color: #7f8c8d;
+}
+
+/* --- 6. Footer --- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+}
+
+/* --- 7. Responsive Design (Media Queries) --- */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stacks the menu on small screens */
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
 }
