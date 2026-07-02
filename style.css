@@ -123,6 +123,14 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.project-card img {
+    width: 100%; /* Take up the full width of the card */
+    height: 200px; /* Force all images to be the exact same height */
+    object-fit: cover; /* Crop the images perfectly so they don't stretch or squish */
+    border-radius: 8px; /* Round the corners of the images a bit */
+    margin-bottom: 15px; /* Add some space between the image and the description */
+}
+
 /* --- 5. Forms & Inputs (Contact & Planner) --- */
 .form-group, .task-container {
     margin-bottom: 1.5rem;
@@ -221,4 +229,34 @@ footer {
     section {
         padding: 1.5rem;
     }
+}
+
+/* --- 8. Table Styles --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--white);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Creates a striped effect on the table rows */
+}
+
+/* Make sure the iframe video has rounded corners to match the cards */
+iframe {
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
