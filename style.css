@@ -1,26 +1,24 @@
 /* --- 1. Global Variables & Reset --- */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
+    --primary-color: #0f0070;
+    --secondary-color: #a00808;
     --text-color: #333333;
-    --bg-color: #f4f7f6;
+    --bg-color: #a7062c;
     --white: #ffffff;
 }
 
-* {
+* {s
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif; /* Clean, modern body text */
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensures footer stays at the bottom */
+    color: #333333;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    min-height: 100vh; /* Ensures the gradient always stretches to the bottom */
 }
 
 /* --- 2. Navigation (Using Flexbox) --- */
@@ -67,25 +65,33 @@ section {
     margin-bottom: 2rem;
 }
 
+/* --- Artistic Gradient Text --- */
 h1 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-size: 2.5rem;
+    /* A striking blue-to-purple gradient */
+    background: linear-gradient(90deg, #007bff 0%, #8a2be2 100%);
+    
+    /* This clips the background to the exact shape of the letters */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    display: inline-block;
 }
 
-h2 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    margin-top: 1.5rem;
+h1, h2, h3, h4, .logo {
+    font-family: 'Poppins', sans-serif; /* Bold, artistic headings */
+    font-weight: 700;
+    letter-spacing: -0.5px; /* Tightens the letters slightly for a premium look */
 }
 
-/* Profile Image Styling */
-.hero-section img {
-    border-radius: 50%;
-    display: block;
-    margin: 1.5rem auto;
-    border: 4px solid var(--secondary-color);
+/* Smooth transitions for all links */
+a {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Add a subtle glow to links when hovered */
+a:hover {
+    color: #007bff; /* You can change this hex code to match your gradient! */
+    text-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
 }
 
 /* --- 4. Projects Page (Using CSS Grid) --- */
@@ -105,15 +111,29 @@ h2 {
 }
 
 .project-card {
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    /* The magic blur effect */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    
+    /* A subtle glossy edge to make it look like real glass */
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    
+    /* A soft, deep shadow to make it float off the background */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); 
+    
+    border-radius: 16px; /* Slightly rounder corners for a modern feel */
+    padding: 20px;
+    
+    /* This prepares the card for smooth hover animations in the next step */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
 }
 
+/* Make the card lift up and cast a deeper shadow on hover */
 .project-card:hover {
-    transform: translateY(-5px); /* Creates a neat lifting effect on hover */
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .project-card img {
