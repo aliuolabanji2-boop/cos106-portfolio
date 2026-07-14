@@ -1,24 +1,26 @@
 /* --- 1. Global Variables & Reset --- */
 :root {
     --primary-color: #0f0070;
-    --secondary-color: #a00808;
+    --secondary-color: #0084ff;
     --text-color: #333333;
     --bg-color: #a7062c;
     --white: #ffffff;
 }
 
-* {s
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Clean, modern body text */
+    font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: #333333;
     background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-    min-height: 100vh; /* Ensures the gradient always stretches to the bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* --- 2. Navigation (Using Flexbox) --- */
@@ -30,7 +32,7 @@ header {
 
 nav ul {
     list-style: none;
-    display: flex; /* This turns the list into a horizontal row */
+    display: flex;
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
@@ -50,7 +52,7 @@ nav a:hover {
 
 /* --- 3. Main Layout & Sections --- */
 main {
-    flex: 1; /* Pushes the footer down */
+    flex: 1;
     padding: 2rem;
     max-width: 1100px;
     margin: 0 auto;
@@ -65,68 +67,65 @@ section {
     margin-bottom: 2rem;
 }
 
-/* --- Artistic Gradient Text --- */
+
 h1 {
-    /* A striking blue-to-purple gradient */
     background: linear-gradient(90deg, #007bff 0%, #8a2be2 100%);
-    
-    /* This clips the background to the exact shape of the letters */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
     display: inline-block;
+    text-align: left;
+    font-size: 2.5rem;
 }
 
-h1, h2, h3, h4, .logo {
-    font-family: 'Poppins', sans-serif; /* Bold, artistic headings */
-    font-weight: 700;
-    letter-spacing: -0.5px; /* Tightens the letters slightly for a premium look */
+h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
 }
 
-/* Smooth transitions for all links */
+.hero-section img {
+    border-radius: 50%;
+    display: block;
+    margin: 1.5rem auto;
+    border: 4px solid linear-gradient(90deg, #007bff 0%, #8a2be2 100%);
+}
+
 a {
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Add a subtle glow to links when hovered */
 a:hover {
-    color: #007bff; /* You can change this hex code to match your gradient! */
+    color: #007bff;
     text-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
 }
 
 /* --- 4. Projects Page (Using CSS Grid) --- */
 .projects-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    background: transparent;
+    background: var(--white);
     box-shadow: none;
-    padding: 0;
+    margin: 0 auto;
+    padding: 2rem;
+    transition: opacity ease-in 0.2s;
 }
 
 .projects-section h1, 
 .projects-section > p {
-    grid-column: 1 / -1; /* This tells the heading and text to span all columns! */
-    text-align: center;
+    grid-column: 1 / -1;
+    text-align: left;
+    
+    
 }
 
 .project-card {
-    /* The magic blur effect */
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px); /* Safari support */
-    
-    /* A subtle glossy edge to make it look like real glass */
+    background: var(--white);
     border: 1px solid rgba(255, 255, 255, 0.3); 
-    
-    /* A soft, deep shadow to make it float off the background */
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); 
-    
-    border-radius: 16px; /* Slightly rounder corners for a modern feel */
+    border-radius: 16px; 
     padding: 20px;
-    
-    /* This prepares the card for smooth hover animations in the next step */
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
-}
 }
 
 /* Make the card lift up and cast a deeper shadow on hover */
@@ -144,11 +143,10 @@ a:hover {
 }
 
 .project-card img {
-    width: 100%; /* Take up the full width of the card */
-    height: 200px; /* Force all images to be the exact same height */
-    object-fit: cover; /* Crop the images perfectly so they don't stretch or squish */
-    border-radius: 8px; /* Round the corners of the images a bit */
-    margin-bottom: 15px; /* Add some space between the image and the description */
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 /* --- 5. Forms & Inputs (Contact & Planner) --- */
@@ -203,7 +201,6 @@ button:hover {
     margin-bottom: 1rem;
 }
 
-/* Task List Styling for Planner */
 #task-list {
     list-style: none;
     margin-top: 1.5rem;
@@ -237,7 +234,7 @@ footer {
 /* --- 7. Responsive Design (Media Queries) --- */
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column; /* Stacks the menu on small screens */
+        flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
@@ -271,10 +268,10 @@ table th {
 }
 
 table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Creates a striped effect on the table rows */
+    background-color: #f9f9f9;
 }
 
-/* Make sure the iframe video has rounded corners to match the cards */
+/* To make sure the iframe video has rounded corners to match the cards */
 iframe {
     border-radius: 8px;
     margin-top: 1rem;
